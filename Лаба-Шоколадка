@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите деньги: ");
+        int money = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите цену шоколадки: ");
+        int price = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите обёртки для обмена: ");
+        int wrap = int.Parse(Console.ReadLine());
+
+        int chocolates = money / price;
+        int wrappers = chocolates;
+        while (wrappers >= wrap)
+        {
+            chocolates += wrappers / wrap; 
+            wrappers = wrappers / wrap + wrappers % wrap; 
+        }
+
+        Console.WriteLine($"Вы можете получить {chocolates} шоколадок.");
+    }
+}
